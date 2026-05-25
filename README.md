@@ -9,8 +9,7 @@ O StudyFlow é uma aplicação web full stack de gerenciamento de estudos e prod
 - Node.js
 - Express
 - JavaScript
-- PostgreSQL
-- pg (driver nativo)
+- MySQL
 
 ### Frontend
 - React
@@ -33,7 +32,7 @@ O projeto conta com testes automatizados cobrindo frontend e backend:
 - **Playwright** — testes end-to-end no frontend (simulação de interações do usuário)
 
 ## 🧠 Objetivo
-Projeto desenvolvido para praticar desenvolvimento full stack com arquitetura em camadas (routes → controller → service → repository), integração com banco de dados relacional e aplicação de testes de software conforme práticas da indústria.
+Projeto desenvolvido para praticar desenvolvimento full stack, integração com banco de dados relacional e aplicação de testes de software conforme práticas da indústria.
 
 ## ▶️ Como rodar o projeto
 
@@ -49,11 +48,4 @@ npm run dev
 cd frontend
 npm install
 npm run dev
-```
-
-## 🔑 Variáveis de Ambiente
-Crie um arquivo `.env` na pasta `backend` com:
-```env
-DATABASE_URL="postgresql://usuario:senha@localhost:5432/studyflow"
-PORT=3000
 ```
