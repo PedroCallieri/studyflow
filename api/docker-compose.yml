@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:8.0
+    platform: linux/arm64/v8
+    container_name: kennel_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: kennel_shop
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
