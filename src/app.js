@@ -6,8 +6,8 @@ const app = express()
 
 app.use(express.json())
 
-app.use('/sessoes', sessaoRouter)
-app.use('/usuarios', usuarioRouter)
+app.use('/', usuarioRouter)
+app.use('/', sessaoRouter)
 
 
 export default app
