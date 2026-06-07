@@ -25,7 +25,6 @@ async function deleteSessao(id) {
     return sessao;
 }
 
-
 export default{ 
 listarSessao, 
 buscarSessaoId,
