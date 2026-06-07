@@ -9,7 +9,7 @@ O StudyFlow é uma aplicação web full stack de gerenciamento de estudos e prod
 - Node.js
 - Express
 - JavaScript
-- MySQL
+- PostgreSQL
 
 ### Frontend
 - React
