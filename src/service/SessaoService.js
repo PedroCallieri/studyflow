@@ -15,9 +15,9 @@ async function criarSessao(materia, tempoEstudado, dataRegistro, status, id_usua
   return sessao;
 }
 
-async function atualizarSessao(materia, tempoEstudado, dataRegistro, status, id) {
-    const sessao = await sessaoRepository.atualizarSessao(materia, tempoEstudado, dataRegistro, status, id)
-    return sessao;
+async function atualizarSessao(id, materia, tempoEstudado, dataRegistro, status) {
+  const sessao = await sessaoRepository.atualizarSessao(materia, tempoEstudado, dataRegistro, status, id)
+  return sessao;
 }
 
 async function deleteSessao(id) {

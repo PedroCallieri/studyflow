@@ -22,19 +22,19 @@ async function criarSessao(materia, tempoEstudado, dataRegistro, status, id_usua
 }
 
 async function atualizarSessao(materia, tempoEstudado, dataRegistro, status, id) {
-    const result = await pool.query(
-        'UPDATE sessao SET materia=$1, tempoEstudado=$2, dataRegistro=$3, status=$4 WHERE id=$5',
-        [materia, tempoEstudado, dataRegistro, status, id]
-    )
-    return result.rows[0];
+  const result = await pool.query(
+    'UPDATE sessao SET materia=$1, tempoEstudado=$2, dataRegistro=$3, status=$4 WHERE id=$5 RETURNING *',
+    [materia, tempoEstudado, dataRegistro, status, id]
+  )
+  return result.rows[0];
 }
 
 async function deleteSessao(id) {
-    const result = await pool.query(
-        'DELETE FROM sessao WHERE id = $1',
-        [id]
-    )
-    return result.rows[0];
+  const result = await pool.query(
+    'DELETE FROM sessao WHERE id = $1 RETURNING *',
+    [id]
+  )
+  return result.rows[0];
 }
 
 export default{ 
