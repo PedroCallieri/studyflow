@@ -5,8 +5,8 @@ async function listarUsuarios() {
     return result.rows;
 }
 
-async function buscarUsuarioId(id) {
-    const result = await pool.query('SELECT * FROM usuario WHERE usuario_id = $1', [id])
+async function buscarUsuarioId(usuario_id) {
+    const result = await pool.query('SELECT * FROM usuario WHERE usuario_id = $1', [usuario_id])
     return result.rows[0];
 }
 
@@ -18,18 +18,18 @@ async function criarUsuario(nome, email, senha) {
     return result.rows[0];
 }
 
-async function atualizarUsuario(nome, email, senha, id) {
+async function atualizarUsuario(nome, email, senha, usuario_id) {
     const result = await pool.query(
         'UPDATE usuario SET nome=$1, email=$2, senha=$3 WHERE usuario_id=$4',
-        [nome, email, senha, id]
+        [nome, email, senha, usuario_id]
     )
     return result.rows[0];
 }
 
-async function deleteUsuario(id) {
+async function deleteUsuario(usuario_id) {
     const result = await pool.query(
         'DELETE FROM usuario WHERE usuario_id = $1',
-        [id]
+        [usuario_id]
     )
     return result.rows[0];
 }

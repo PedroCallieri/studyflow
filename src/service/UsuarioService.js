@@ -5,8 +5,8 @@ async function listarUsuarios() {
     return usuarios;
 }
 
-async function buscarUsuarioId(id) {
-    const usuarioId = await usuarioRepository.buscarUsuarioId(id) 
+async function buscarUsuarioId(usuario_id) {
+    const usuarioId = await usuarioRepository.buscarUsuarioId(usuario_id) 
     return usuarioId;
 }
 
@@ -15,13 +15,13 @@ async function criarUsuario(nome, email, senha) {
   return usuario;
 }
 
-async function atualizarUsuario(nome, email, senha, id) {
-    const usuario = await usuarioRepository.atualizarUsuario(nome, email, senha, id)
+async function atualizarUsuario(nome, email, senha, usuario_id) {
+    const usuario = await usuarioRepository.atualizarUsuario(nome, email, senha, usuario_id)
     return usuario;
 }
 
-async function deleteUsuario(id) {
-    const usuario = await usuarioRepository.deleteUsuario(id)
+async function deleteUsuario(usuario_id) {
+    const usuario = await usuarioRepository.deleteUsuario(usuario_id)
     return usuario;
 }
 
