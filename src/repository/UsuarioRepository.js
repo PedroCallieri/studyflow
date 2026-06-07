@@ -20,7 +20,7 @@ async function criarUsuario(nome, email, senha) {
 
 async function atualizarUsuario(nome, email, senha, usuario_id) {
     const result = await pool.query(
-        'UPDATE usuario SET nome=$1, email=$2, senha=$3 WHERE usuario_id=$4',
+        'UPDATE usuario SET nome=$1, email=$2, senha=$3 WHERE usuario_id=$4 RETURNING *',
         [nome, email, senha, usuario_id]
     )
     return result.rows[0];
@@ -28,15 +28,16 @@ async function atualizarUsuario(nome, email, senha, usuario_id) {
 
 async function deleteUsuario(usuario_id) {
     const result = await pool.query(
-        'DELETE FROM usuario WHERE usuario_id = $1',
+        'DELETE FROM usuario WHERE usuario_id = $1 RETURNING *',
         [usuario_id]
     )
     return result.rows[0];
 }
 
-export default{ 
-listarUsuarios, 
-buscarUsuarioId,
-criarUsuario,
-atualizarUsuario,
-deleteUsuario };
+export default {
+    listarUsuarios,
+    buscarUsuarioId,
+    criarUsuario,
+    atualizarUsuario,
+    deleteUsuario
+};
