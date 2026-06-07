@@ -1,7 +1,7 @@
 import  {Router}  from "express";
 import  sessaoController  from "../controller/SessaoController.js";
 
-export const sessaoRouter = Router()
+const sessaoRouter = Router()
 
 sessaoRouter.get("/sessao", async (req, res) => {
     return sessaoController.listarSessao(req, res); 
@@ -23,3 +23,4 @@ sessaoRouter.delete("/sessao/:id", async (req, res) => {
     return sessaoController.deleteSessao(req, res); 
 });
 
+export default sessaoRouter

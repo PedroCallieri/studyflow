@@ -1,7 +1,7 @@
 import  {Router}  from "express";
 import  usuarioController  from "../controller/UsuarioController.js";
 
-export const usuarioRouter = Router()
+const usuarioRouter = Router()
 
 usuarioRouter.get("/usuario", async (req, res) => {
     return usuarioController.listarUsuarios(req, res); 
@@ -23,3 +23,4 @@ usuarioRouter.delete("/usuario/:id", async (req, res) => {
     return usuarioController.deleteUsuario(req, res); 
 });
 
+export default usuarioRouter
