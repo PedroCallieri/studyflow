@@ -1,4 +1,4 @@
-import pool from '../db/connection.js'
+import pool from '../config/connection.js'
 
 async function listarUsuarios() {
     const result = await pool.query('SELECT * FROM usuario')

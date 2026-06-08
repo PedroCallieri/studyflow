@@ -1,4 +1,4 @@
-import pool from '../db/connection.js'
+import pool from '../config/connection.js'
 
 async function listarSessao() {
     const result = await pool.query('SELECT * FROM sessao')
