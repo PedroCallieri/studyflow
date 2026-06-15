@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -85,7 +86,7 @@ export default function Login() {
           </div>
 
           <p className="mt-6 text-sm text-center text-gray-500">
-            Não tem conta? <a className="text-green-800 font-bold hover:underline" href="#">Cadastre-se</a>
+            Não tem conta? <Link className="text-green-800 font-bold hover:underline" to="/cadastro">Cadastre-se</Link>
           </p>
         </div>
       </main>
