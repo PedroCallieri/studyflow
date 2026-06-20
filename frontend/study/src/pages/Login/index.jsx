@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../../services/api'
 
 export default function Login() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [erro, setErro] = useState('')
@@ -13,18 +15,12 @@ export default function Login() {
     setCarregando(true)
 
     try {
-      const response = await fetch('http://localhost:3000/usuario')
-      const usuarios = await response.json()
-
-      const usuario = usuarios.find(u => u.email === email && u.senha === senha)
-
-      if (usuario) {
-        alert(`Bem-vindo, ${usuario.nome}!`)
-      } else {
-        setErro('E-mail ou senha incorretos.')
-      }
+      const resultado = await login(email, senha)
+      localStorage.setItem('token', resultado.token)
+      localStorage.setItem('usuario', JSON.stringify(resultado.usuario))
+      navigate('/dashboard')
     } catch (error) {
-      setErro('Erro ao conectar com o servidor.')
+      setErro('E-mail ou senha incorretos.')
     } finally {
       setCarregando(false)
     }
@@ -39,7 +35,7 @@ export default function Login() {
         </div>
         <div className="w-full bg-white p-8 rounded-2xl shadow-md border border-gray-100">
           <h2 className="text-xl font-semibold text-center text-gray-800 mb-6">Bem-vindo</h2>
-          
+
           <form className="space-y-4" onSubmit={handleLogin}>
             <div>
               <label className="block text-sm font-medium text-gray-600 mb-1">E-mail</label>

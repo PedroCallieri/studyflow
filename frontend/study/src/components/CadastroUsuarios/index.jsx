@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { criarUsuario } from '../../services/api'
 
-export default function Cadastro() {
+const cadastroUsuario = () => {''
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
@@ -121,3 +121,4 @@ export default function Cadastro() {
     </div>
   )
 }
+export default cadastroUsuario

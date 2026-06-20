@@ -1,5 +1,17 @@
 const API_URL = 'http://localhost:3000'
 
+export async function login(email, senha) {
+  const response = await fetch(`${API_URL}/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, senha })
+  })
+  if (!response.ok) {
+    throw new Error('Email ou senha incorretos')
+  }
+  return response.json()
+}
+
 export async function getUsuarios() {
   const response = await fetch(`${API_URL}/usuario`)
   return response.json()

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getSessoes, criarSessao, deletarSessao } from '../../services/api'
 
-export default function Sessoes() {
+const Sessoes = ()  => {
   const [sessoes, setSessoes] = useState([])
   const [modalAberto, setModalAberto] = useState(false)
   const [materia, setMateria] = useState('')
@@ -248,3 +248,5 @@ export default function Sessoes() {
     </div>
   )
 }
+
+export default Sessoes 
