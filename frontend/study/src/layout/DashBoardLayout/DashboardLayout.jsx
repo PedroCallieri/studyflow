@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 const DashboardLayout = () => {
     const navigate = useNavigate()
@@ -21,26 +21,26 @@ const DashboardLayout = () => {
         </div>
 
        <nav className="flex flex-col gap-2 p-4">
-  <a 
-    href="/dashboard" 
-    className="flex items-center gap-3 px-4 py-3 bg-[#2D6A4F] text-white rounded-lg font-bold text-sm"
+  
+  <Link to="/dashboard"
+  className="flex items-center gap-3 px-4 py-3 bg-[#2D6A4F] text-white rounded-lg font-bold text-sm"
   >
     Dashboard
-  </a>
+  </Link>
 
-  <a 
-    href="/sessoes" 
+  <Link 
+    to="/sessoes" 
     className="flex items-center gap-3 px-4 py-3 text-[#95D5B2]/80 hover:bg-[#2D6A4F] hover:text-white rounded-lg text-sm font-medium transition-all"
   >
     Sessões
-  </a>
+  </Link>
 
-  <a 
-    href="/perfil" 
+  <Link
+    to="/perfil" 
     className="flex items-center gap-3 px-4 py-3 text-[#95D5B2]/80 hover:bg-[#2D6A4F] hover:text-white rounded-lg text-sm font-medium transition-all"
   >
     Perfil
-  </a>
+  </Link>
 </nav>
 
 

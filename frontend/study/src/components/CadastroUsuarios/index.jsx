@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { criarUsuario } from '../../services/api'
 
-const cadastroUsuario = () => {''
+
+const cadastroUsuario = () => {
+  ''
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
@@ -10,7 +12,7 @@ const cadastroUsuario = () => {''
   const [erro, setErro] = useState('')
   const [sucesso, setSucesso] = useState('')
   const [carregando, setCarregando] = useState(false)
-
+  const navigate = useNavigate()
   async function handleCadastro(e) {
     e.preventDefault()
     setErro('')
@@ -25,10 +27,7 @@ const cadastroUsuario = () => {''
     try {
       const usuario = await criarUsuario(nome, email, senha)
       if (usuario.usuario_id) {
-        setSucesso(`Conta criada com sucesso! Bem-vindo, ${usuario.nome}!`)
-        setNome('')
-        setEmail('')
-        setSenha('')
+        navigate('/')
       } else {
         setErro('Erro ao criar conta. Tente novamente.')
       }
@@ -43,7 +42,7 @@ const cadastroUsuario = () => {''
     <div className="min-h-screen flex items-center justify-center p-6 bg-[#F8F9FA]">
       <main className="w-full max-w-[440px]">
         <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col gap-6">
-          
+
           <div className="flex flex-col items-center gap-1 mb-2">
             <h1 className="text-2xl font-bold text-green-900">StudyFlow</h1>
           </div>
@@ -113,7 +112,7 @@ const cadastroUsuario = () => {''
 
           <p className="text-center text-sm text-gray-500">
             Já tem conta?{' '}
-           <Link className="text-green-800 font-bold hover:underline" to="/">Faça login</Link>
+            <Link className="text-green-800 font-bold hover:underline" to="/">Faça login</Link>
           </p>
 
         </div>

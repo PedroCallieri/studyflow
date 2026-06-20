@@ -9,14 +9,15 @@ export default function Dashboard() {
     carregarSessoes()
   }, [])
 
-  async function carregarSessoes() {
-    try {
-      const dados = await getSessoes()
-      setSessoes(dados)
-    } catch (error) {
-      console.error('Erro ao carregar sessões:', error)
-    }
+ async function carregarSessoes() {
+  try {
+    const dados = await getSessoes()
+    const minhasSessoes = dados.filter(s => s.id_usuario === usuario.usuario_id)
+    setSessoes(minhasSessoes)
+  } catch (error) {
+    console.error('Erro ao carregar sessões:', error)
   }
+}
 
   const totalSessoes = sessoes.length
   const concluidas = sessoes.filter(s => s.status === 'concluido').length
