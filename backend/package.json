@@ -21,5 +21,13 @@
     "dev": "nodemon src/server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "babel-jest": "^30.4.1",
+    "jest-environment-node": "^30.4.1",
+    "jest-html-reporter": "^4.4.0",
+    "puppeteer": "^25.2.0"
+  }
 }

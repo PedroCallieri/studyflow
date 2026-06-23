@@ -13,29 +13,32 @@ const CadastroUsuarios = () => {
   const [carregando, setCarregando] = useState(false)
   const navigate = useNavigate()
 
-  async function handleCadastro(e) {
-    e.preventDefault()
-    setErro('')
+async function handleCadastro(e) {
+  e.preventDefault()
+  setErro('')
 
-    if (senha.length < 8) {
-      setErro('A senha deve ter no mínimo 8 caracteres.')
-      return
-    }
+ const usuario = await criarUsuario(nome, email, senha)
 
-    setCarregando(true)
-    try {
-      const usuario = await criarUsuario(nome, email, senha)
-      if (usuario.usuario_id) {
-        navigate('/')
-      } else {
-        setErro('Erro ao criar conta. Tente novamente.')
-      }
-    } catch (error) {
-      setErro('Erro ao conectar com o servidor.')
-    } finally {
-      setCarregando(false)
+if (usuario?.usuario_id || usuario?.id) {
+  navigate('/')
+}
+
+  setCarregando(true)
+
+  try {
+    const usuario = await criarUsuario(nome, email, senha)
+
+    if (usuario?.usuario_id || usuario?.id) {
+      navigate('/')
+    } else {
+      setErro('Erro ao criar conta. Tente novamente.')
     }
+  } catch (error) {
+    setErro('Erro ao conectar com o servidor.')
+  } finally {
+    setCarregando(false)
   }
+}
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-[#F8F9FA]">

@@ -7,9 +7,11 @@ test('deve exibir a tela de login', async ({ page }) => {
 
 test('deve mostrar erro com credenciais invalidas', async ({ page }) => {
   await page.goto('/')
+
   await page.getByPlaceholder('exemplo@email.com').fill('invalido@teste.com')
   await page.getByPlaceholder('••••••••').fill('senhaerrada')
   await page.getByRole('button', { name: 'Entrar' }).click()
+
   await expect(page.getByText('E-mail ou senha incorretos.')).toBeVisible()
 })
 
