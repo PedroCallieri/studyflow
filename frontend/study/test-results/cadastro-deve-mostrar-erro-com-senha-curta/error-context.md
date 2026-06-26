@@ -7,7 +7,7 @@
 # Test info
 
 - Name: cadastro.spec.js >> deve mostrar erro com senha curta
-- Location: tests\cadastro.spec.js:17:1
+- Location: tests/cadastro.spec.js:17:1
 
 # Error details
 
@@ -29,22 +29,20 @@ Call log:
 - main:
   - img "StudyFlow"
   - heading "StudyFlow" [level=1]
-  - paragraph: Junte-se à nossa comunidade acadêmica e alcance o seu estado de flow. Organize seus estudos com a eficiência da modernidade.
-  - img "StudyFlow"
-  - heading "Criar conta" [level=2]
-  - paragraph: Comece sua jornada acadêmica hoje mesmo.
-  - text: Nome completo 👤
-  - textbox "Seu nome": Usuario Teste
+  - paragraph: Sua jornada acadêmica, otimizada.
+  - heading "Bem-vindo" [level=2]
   - text: E-mail ✉️
-  - textbox "estudo@gmail.com": teste@email.com
-  - text: Senha 🔒
-  - textbox "Mínimo 8 caracteres": "123"
-  - button "👁️"
-  - button "Criar conta"
+  - textbox "exemplo@email.com"
+  - text: Senha
+  - link "Esqueceu a senha?":
+    - /url: "#"
+  - text: 🔒
+  - textbox "••••••••"
+  - button "Entrar →"
   - paragraph:
-    - text: Já tem conta?
-    - link "Faça login":
-      - /url: /
+    - text: Não tem conta?
+    - link "Cadastre-se":
+      - /url: /cadastro
 ```
 
 # Test source
